@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            text-align: center;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .slider {
+            width: 500px;
+            height: 500px;
+            background-image: url('./H1.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 16px;
+        }
+
+        .slider-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 4px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="slider">
+        </div>
+        <div class="next slider-btn">Next</div>
+        <div class="prev slider-btn">Prev</div>
+        <div class="first slider-btn">First</div>
+        <div class="last slider-btn">Last</div>
+    </div>
+    <script>
+        const nextBtn = document.querySelector(".next");
+        const prevBtn = document.querySelector(".prev");
+        const firstBtn = document.querySelector(".first");
+        const lastBtn = document.querySelector(".last");
+
+        const images = [
+            './H1.jpg',
+            './H2.jpg',
+            './H3.jpg',
+            './H4.jpg',
+            './H5.jpg',
+        ]
+
+        prevBtn.addEventListener("click", handlePrevImage);
+        nextBtn.addEventListener("click", handleNextImage);
+        firstBtn.addEventListener("click", handleFirstImage);
+        lastBtn.addEventListener("click", handleLastImage);
+
+        const slider = document.querySelector(".slider");
+        let index = 0;
+        Number(index);
+        function handleChangeImage(randomImage) {
+            slider.style.backgroundImage = `url(${randomImage})`;
+        }
+        function handleNextImage() {
+            index++;
+            if (index > images.length - 1) {
+                index = 0;
+            }
+            const randomImage = images[index];
+            handleChangeImage(randomImage);
+        }
+        function handlePrevImage() {
+            index--;
+            if (index < 0) {
+                index = images.length - 1;
+            }
+            const randomImage = images[index];
+            handleChangeImage(randomImage);
+        }
+
+        function handleFirstImage() {
+            index = 0;
+            const randomImage = images[index];
+            handleChangeImage(randomImage)
+        }
+
+        function handleLastImage() {
+            index = images.length - 1;
+            const randomImage = images[index];
+            handleChangeImage(randomImage)
+        }
+
+    </script>
+</body>
+
+</html>
