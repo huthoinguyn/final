@@ -44,6 +44,14 @@
         margin: 0 auto;
       }
 
+      .cart-total{
+        width: calc(100% - 48px);
+        height: fit-content;
+        background-color: blue;
+        color: #fff;
+        text-align: end;
+        padding: 3px 24px;
+      }
       .cart-item-img {
         width: 100px;
         height: 100px;
@@ -109,6 +117,10 @@
           <th>Thành Tiền</th>
         </tr>
       </table>
+      <div class="cart-total">
+        <p>Tổng: $<span style="font-size: 18px;">0</span></p>
+        
+      </div>
     </div>
     <script src="./main.js"></script>
   </body>
